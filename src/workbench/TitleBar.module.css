@@ -1,0 +1,156 @@
+/* Title bar: 40px frame bar with in-window menu, project title, window controls. */
+
+.titlebar {
+  height: var(--h-titlebar);
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 0 0 10px;
+  background: var(--bg-frame);
+  color: var(--fg-strong);
+  user-select: none;
+}
+
+/* When a menu is open, the menu titles must stay hoverable above the
+   popup's full-screen click-away backdrop. */
+.menuBar {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  flex: none;
+  position: relative;
+  z-index: calc(var(--z-popup) + 1);
+}
+
+.menuButton {
+  height: 28px;
+  padding: 0 7px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-control);
+  color: var(--fg);
+  font-size: var(--fs-ui);
+  font-family: inherit;
+  cursor: default;
+  outline: none;
+
+  &:hover,
+  &[data-open="true"] {
+    background: var(--bg-toolbar-hover);
+  }
+}
+
+.title {
+  font-size: var(--fs-ui);
+  color: var(--fg-muted);
+  padding: 0 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 320px;
+  pointer-events: none;
+}
+
+/* [项目名 ˅] / [⎇ 分支 ˅] title-bar widgets */
+.projectWidget {
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 8px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-control);
+  color: var(--fg-strong);
+  font-size: var(--fs-ui);
+  font-family: inherit;
+  cursor: default;
+  outline: none;
+  white-space: nowrap;
+  max-width: 420px;
+
+  &:hover {
+    background: var(--bg-toolbar-hover);
+  }
+
+  & svg {
+    color: var(--fg-secondary);
+  }
+}
+
+.projectName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.aheadBehind {
+  color: var(--fg-muted);
+  font-size: var(--fs-tiny);
+}
+
+.welcomeTitle {
+  padding-left: 4px;
+  color: var(--fg-secondary);
+  font-size: var(--fs-ui);
+  white-space: nowrap;
+  user-select: none;
+  pointer-events: none;
+}
+
+.drag {
+  flex: 1;
+  height: 100%;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.toolButton {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-popup);
+  color: var(--fg-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  outline: none;
+  padding: 0;
+
+  &:hover {
+    background: var(--bg-toolbar-hover);
+    color: var(--fg);
+  }
+}
+
+/* Windows caption buttons: 46px wide, full height, hover fills. */
+.caption {
+  height: var(--h-titlebar);
+  width: 46px;
+  border: none;
+  background: transparent;
+  color: var(--fg-icon);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  outline: none;
+  padding: 0;
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--fg-strong);
+  }
+
+  &[data-close="true"]:hover {
+    background: var(--caption-close-hover, #c42b1c);
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,156 @@
+/* Tool window layout: islands grid + stripes, matching the OpenIDEA shell. */
+
+.frame {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  padding: 0 var(--island-gap);
+  background: var(--bg-frame);
+}
+
+.grid {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  grid-template-columns:
+    minmax(0, var(--tw-left, 0px))
+    minmax(0, var(--gap-left, 0px))
+    minmax(200px, 1fr)
+    minmax(0, var(--gap-right, 0px))
+    minmax(0, var(--tw-right, 0px));
+  grid-template-rows:
+    minmax(60px, 1fr)
+    minmax(0, var(--gap-bottom, 0px))
+    minmax(0, var(--tw-bottom, 0px));
+  grid-template-areas:
+    "left gapLeft editor gapRight right"
+    "gapBottom gapBottom gapBottom gapBottom gapBottom"
+    "bottom bottom bottom bottom bottom";
+}
+
+.island {
+  background: var(--bg-island);
+  border-radius: var(--island-radius);
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.islandLeft {
+  grid-area: left;
+}
+.islandRight {
+  grid-area: right;
+}
+.islandBottom {
+  grid-area: bottom;
+}
+.islandEditor {
+  grid-area: editor;
+}
+
+/* Gap resize handles: live inside the gap tracks. */
+.gapHandle {
+  position: relative;
+  z-index: var(--z-panel);
+}
+
+.gapLeft {
+  grid-area: gapLeft;
+  cursor: col-resize;
+}
+.gapRight {
+  grid-area: gapRight;
+  cursor: col-resize;
+}
+.gapBottom {
+  grid-area: gapBottom;
+  cursor: row-resize;
+}
+
+.gapLeft::before,
+.gapRight::before {
+  content: "";
+  position: absolute;
+  inset: 0 -3px;
+}
+.gapBottom::before {
+  content: "";
+  position: absolute;
+  inset: -3px 0;
+}
+
+/* Tool window body: 40px header + content. */
+.header {
+  height: var(--h-header);
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px 0 12px;
+  font-size: var(--fs-ui);
+  color: var(--fg-muted);
+  user-select: none;
+}
+
+.headerTitle {
+  font-weight: 600;
+  color: var(--fg-strong);
+}
+
+.headerActions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tool window stripe (vertical icon strip on the frame). */
+.stripe {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 0;
+  width: var(--stripe-icon-button);
+}
+
+.stripeButton {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-control);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+  cursor: default;
+  padding: 0;
+  outline: none;
+
+  &:hover {
+    background: var(--bg-stripe-hover);
+  }
+
+  &[data-active="true"] {
+    background: var(--accent);
+    color: #ffffff;
+  }
+}
+
+.spacer {
+  flex: 1;
+}

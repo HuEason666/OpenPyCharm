@@ -1,0 +1,190 @@
+/* Editor area: Islands-style pill tabs on top of the editor island. */
+
+.area {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-island);
+  border-radius: var(--island-radius);
+  overflow: hidden;
+}
+
+.tabstrip {
+  height: var(--h-header);
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 8px 0 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.tab {
+  height: var(--h-tab);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px 0 10px;
+  border-radius: var(--radius-tab);
+  color: var(--fg-muted);
+  font-size: var(--fs-ui);
+  white-space: nowrap;
+  cursor: default;
+  flex: none;
+  user-select: none;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  &:hover {
+    background: var(--bg-tab-hover);
+  }
+
+  &[data-active="true"] {
+    background: var(--bg-tab-selected);
+    box-shadow: inset 0 0 0 1px var(--border-tab-selected);
+    color: var(--fg-strong);
+  }
+}
+
+.tabName {
+  pointer-events: none;
+}
+
+.tabClose {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  color: inherit;
+  opacity: 0;
+  cursor: default;
+  border: none;
+  background: none;
+  padding: 0;
+  outline: none;
+
+  .tab:hover &,
+  &[data-active="true"] {
+    opacity: 1;
+  }
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--fg-strong);
+  }
+}
+
+.dirtyDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--fg-strong);
+  flex: none;
+  pointer-events: none;
+}
+
+.tabsRight {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding-right: 4px;
+  flex: none;
+}
+
+.tabBarBtn {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-control);
+  color: var(--icon-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  outline: none;
+  padding: 0;
+
+  &:hover:not(:disabled) {
+    background: var(--bg-hover);
+    color: var(--fg);
+  }
+
+  &:disabled {
+    color: var(--fg-faint);
+    opacity: 0.6;
+  }
+}
+
+.editorHost {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+
+  & > .cm-editor {
+    height: 100%;
+  }
+}
+
+.breadcrumbs {
+  flex: none;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: var(--fs-tiny);
+  color: var(--fg-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.crumbWrap {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.crumbSep {
+  margin: 0 4px;
+  color: var(--fg-faint);
+}
+
+.crumb {
+  border: none;
+  background: none;
+  padding: 0 2px;
+  font: inherit;
+  color: var(--fg-muted);
+  cursor: default;
+  border-radius: 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    color: var(--fg-strong);
+    background: var(--bg-hover);
+  }
+
+  &[data-last="true"] {
+    color: var(--fg-secondary);
+  }
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-faint);
+  font-size: var(--fs-ui);
+}

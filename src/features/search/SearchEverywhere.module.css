@@ -1,0 +1,123 @@
+/* Search Everywhere popup: top-center floating panel (IDEA style). */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-dialog);
+  background: transparent;
+}
+
+.panel {
+  position: fixed;
+  top: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 640px;
+  max-width: calc(100vw - 32px);
+  max-height: 70vh;
+  z-index: var(--z-dialog);
+  background: var(--bg-popup);
+  border: 1px solid var(--border-popup);
+  border-radius: var(--radius-popup-large);
+  box-shadow: var(--shadow-dialog);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.tabs {
+  display: flex;
+  gap: 2px;
+  padding: 8px 8px 0 8px;
+}
+
+.tab {
+  height: 24px;
+  padding: 0 10px;
+  border: none;
+  border-radius: var(--radius-tab);
+  background: transparent;
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+  font-family: inherit;
+  cursor: default;
+  outline: none;
+
+  &[data-active="true"] {
+    background: var(--bg-tab-selected);
+    box-shadow: inset 0 0 0 1px var(--border-tab-selected);
+    color: var(--fg-strong);
+  }
+}
+
+.input {
+  margin: 8px;
+  height: 32px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--fg);
+  font-size: var(--fs-ui);
+  font-family: inherit;
+  padding: 0 10px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
+
+.list {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 8px 8px 8px;
+}
+
+.row {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  border-radius: var(--radius-row);
+  font-size: var(--fs-ui);
+  color: var(--fg);
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &[data-selected="true"] {
+    background: var(--bg-selected);
+    color: var(--fg-strong);
+  }
+}
+
+.rowPath {
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rowHint {
+  margin-left: auto;
+  color: var(--fg-faint);
+  font-size: var(--fs-small);
+}
+
+.groupLabel {
+  padding: 6px 8px 2px 8px;
+  color: var(--fg-muted);
+  font-size: var(--fs-tiny);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--fg-faint);
+  font-size: var(--fs-ui);
+}

@@ -1,0 +1,100 @@
+/* Status bar: 34px borderless bar on the frame, widgets left/right. */
+
+.statusbar {
+  height: calc(var(--h-statusbar) + 4px);
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px 0 12px;
+  background: var(--bg-frame);
+  color: var(--fg-muted);
+  font-size: var(--fs-ui);
+  user-select: none;
+}
+
+.widget {
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 6px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-control);
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: default;
+  outline: none;
+  white-space: nowrap;
+  padding: 0;
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--fg);
+  }
+}
+
+.widgetContent {
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 6px;
+}
+
+.gitCount {
+  color: var(--fg-muted);
+  font-size: var(--fs-tiny);
+}
+
+.icon {
+  display: inline-flex;
+  color: var(--icon-color);
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* Left file path breadcrumbs */
+.filePath {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-right: 12px;
+}
+
+.pathSeg {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  flex: none;
+}
+
+.pathItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 5px;
+  border-radius: var(--radius-control);
+  color: var(--fg-muted);
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--fg);
+  }
+
+  &:last-child {
+    color: var(--fg);
+  }
+}
+
+.pathSep {
+  color: var(--fg-faint);
+}

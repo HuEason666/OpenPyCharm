@@ -1,0 +1,93 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-dialog);
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.panel {
+  position: fixed;
+  top: 5vh;
+  left: 4vw;
+  width: 92vw;
+  height: 90vh;
+  z-index: var(--z-dialog);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--bg-popup);
+  border: 1px solid var(--border-popup);
+  border-radius: var(--radius-dialog);
+  box-shadow: var(--shadow-dialog);
+}
+
+.header {
+  flex: none;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--fg-secondary);
+}
+
+.title {
+  color: var(--fg-strong);
+  font-size: var(--fs-ui);
+  font-weight: 600;
+}
+
+.meta {
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+}
+
+.close {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: var(--fg-muted);
+  cursor: default;
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--fg-strong);
+  }
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.host {
+  height: 100%;
+  overflow: hidden;
+
+  :global(.cm-mergeView) {
+    height: 100%;
+  }
+
+  :global(.cm-mergeViewEditors) {
+    height: 100%;
+  }
+
+  :global(.cm-editor) {
+    height: 100%;
+  }
+}
+
+.error {
+  padding: 16px;
+  color: var(--danger);
+  font-size: var(--fs-small);
+  white-space: pre-wrap;
+}

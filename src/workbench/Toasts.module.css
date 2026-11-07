@@ -1,0 +1,48 @@
+/* Toast notifications — lower-right corner stack, JetBrains-style cards. */
+
+.host {
+  position: fixed;
+  right: 16px;
+  bottom: 40px;
+  z-index: var(--z-toast);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  max-width: 380px;
+  padding: 9px 14px 9px 12px;
+  border: 1px solid var(--border-popup);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-control);
+  background: var(--bg-popup);
+  color: var(--fg);
+  font-size: var(--fs-ui);
+  box-shadow: var(--shadow-dialog);
+  cursor: default;
+  user-select: none;
+  animation: toast-in 160ms ease-out;
+
+  &[data-kind="success"] {
+    border-left-color: var(--success);
+  }
+
+  &[data-kind="error"] {
+    border-left-color: var(--danger);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

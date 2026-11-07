@@ -1,0 +1,148 @@
+/* Find in Files tool window: query bar + grouped results. */
+
+.find {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.queryRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 10px;
+  flex: none;
+}
+
+.queryInput {
+  flex: 1;
+  height: var(--h-field);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--fg);
+  font-size: var(--fs-ui);
+  font-family: inherit;
+  padding: 0 8px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
+
+.optionButton {
+  width: 26px;
+  height: 26px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-control);
+  color: var(--icon-color);
+  cursor: default;
+  outline: none;
+  padding: 0;
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+
+  &[data-on="true"] {
+    background: var(--bg-toolbar-selected);
+    color: #ffffff;
+  }
+}
+
+.results {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 0 6px 8px 6px;
+  user-select: none;
+}
+
+.summary {
+  padding: 2px 8px 6px 8px;
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+}
+
+.fileGroup {
+  margin-bottom: 2px;
+}
+
+.fileRow {
+  height: var(--h-row);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px;
+  border-radius: var(--radius-row);
+  color: var(--fg-strong);
+  font-size: var(--fs-ui);
+  cursor: default;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--bg-tree-hover);
+  }
+}
+
+.filePath {
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.matchRow {
+  height: var(--h-row);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 6px 0 30px;
+  border-radius: var(--radius-row);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--fg);
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &:hover {
+    background: var(--bg-tree-hover);
+  }
+}
+
+.matchLineNo {
+  color: var(--fg-faint);
+  min-width: 34px;
+  text-align: right;
+  flex: none;
+}
+
+.matchText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  & mark {
+    background: var(--bg-text-search-result);
+    color: inherit;
+    border-radius: 2px;
+  }
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-faint);
+  font-size: var(--fs-ui);
+  padding: 12px;
+  text-align: center;
+}

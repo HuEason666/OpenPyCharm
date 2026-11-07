@@ -1,0 +1,288 @@
+.debug {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.toolbar {
+  flex: none;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.iconButton {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: var(--fg);
+  cursor: default;
+
+  &:hover:not(:disabled) {
+    background: var(--bg-hover);
+  }
+
+  &:disabled {
+    color: var(--fg-faint);
+  }
+}
+
+.status {
+  margin-left: 8px;
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabs {
+  flex: none;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  height: 22px;
+  padding: 0 8px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+  cursor: default;
+
+  &:hover {
+    background: var(--bg-hover);
+    color: var(--fg);
+  }
+
+  &[data-active="true"] {
+    background: var(--bg-selected);
+    color: var(--fg-strong);
+  }
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.split {
+  height: 100%;
+  display: flex;
+  min-height: 0;
+}
+
+.frames {
+  width: 42%;
+  min-width: 180px;
+  overflow: auto;
+  border-right: 1px solid var(--border);
+  padding: 4px 0;
+}
+
+.variables {
+  flex: 1;
+  min-width: 0;
+  overflow: auto;
+  padding: 4px 0;
+}
+
+.frameRow {
+  height: var(--h-row);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  font-size: var(--fs-ui);
+  color: var(--fg);
+  cursor: default;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+
+  &[data-active="true"] {
+    background: var(--bg-selected);
+    color: var(--fg-strong);
+  }
+}
+
+.frameName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.framePos {
+  margin-left: auto;
+  color: var(--fg-faint);
+  font-size: var(--fs-tiny);
+  flex: none;
+}
+
+.scope {
+  padding-bottom: 4px;
+}
+
+.scopeName {
+  padding: 4px 10px 2px;
+  color: var(--fg-muted);
+  font-size: var(--fs-tiny);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.varRow {
+  min-height: var(--h-row);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-right: 8px;
+  font-size: var(--fs-small);
+  color: var(--fg);
+  cursor: default;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+}
+
+.chevron {
+  width: 12px;
+  flex: none;
+  display: inline-flex;
+  justify-content: center;
+  color: var(--fg-muted);
+}
+
+.varName {
+  color: var(--link);
+  flex: none;
+}
+
+.varValue {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--fg-secondary);
+}
+
+.varType {
+  color: var(--fg-faint);
+  font-size: var(--fs-tiny);
+  flex: none;
+}
+
+.breakpoints {
+  height: 100%;
+  overflow: auto;
+  padding: 4px 0;
+}
+
+.removeButton {
+  margin-left: auto;
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 3px;
+  background: none;
+  color: var(--fg-muted);
+  cursor: default;
+
+  &:hover {
+    background: var(--bg-elev);
+    color: var(--fg-strong);
+  }
+}
+
+.console {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.output {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  margin: 0;
+  padding: 6px 10px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--fg-secondary);
+  white-space: pre-wrap;
+}
+
+.evalRow {
+  flex: none;
+  display: flex;
+  gap: 6px;
+  padding: 6px 8px;
+  border-top: 1px solid var(--border);
+}
+
+.evalInput {
+  flex: 1;
+  height: var(--h-field);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--fg);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  padding: 0 8px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+
+  &:disabled {
+    color: var(--fg-faint);
+  }
+}
+
+.clearButton {
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  background: var(--bg-elev);
+  color: var(--fg);
+  font-size: var(--fs-small);
+  cursor: default;
+}
+
+.empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-faint);
+  font-size: var(--fs-small);
+}
+
+.hint {
+  padding: 8px 12px;
+  color: var(--fg-faint);
+  font-size: var(--fs-tiny);
+}

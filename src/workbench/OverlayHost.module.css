@@ -1,0 +1,155 @@
+/* Overlay dialogs: input dialog, settings, about, run config picker. */
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-dialog);
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.dialog {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 440px;
+  max-width: calc(100vw - 48px);
+  z-index: var(--z-dialog);
+  background: var(--bg-popup);
+  border: 1px solid var(--border-popup);
+  border-radius: var(--radius-dialog);
+  box-shadow: var(--shadow-dialog);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  color: var(--fg-strong);
+}
+
+.input {
+  height: var(--h-field);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--fg);
+  font-size: var(--fs-ui);
+  font-family: inherit;
+  padding: 0 10px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
+
+.hint {
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.grow {
+  flex: 1;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.button {
+  height: var(--h-button);
+  padding: 0 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--fg);
+  font-size: var(--fs-ui);
+  font-family: inherit;
+  cursor: default;
+  outline: none;
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+
+  &[data-primary="true"] {
+    background: var(--accent);
+    border-color: transparent;
+    color: #ffffff;
+
+    &:hover {
+      background: color-mix(in srgb, var(--accent) 88%, #ffffff);
+    }
+  }
+}
+
+.radioRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--fs-ui);
+  color: var(--fg);
+  cursor: default;
+}
+
+.select {
+  height: var(--h-field);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--fg);
+  font-size: var(--fs-ui);
+  font-family: inherit;
+  padding: 0 8px;
+  outline: none;
+  flex: 1;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
+
+.list {
+  max-height: 240px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+}
+
+.listRow {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  font-size: var(--fs-ui);
+  color: var(--fg);
+  cursor: default;
+
+  &:hover {
+    background: var(--bg-selected);
+  }
+}
+
+.muted {
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+}

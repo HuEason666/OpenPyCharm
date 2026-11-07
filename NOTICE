@@ -1,0 +1,19 @@
+OpenPyCharm
+Copyright 2026 OpenPyCharm contributors
+
+This product includes software developed as part of the OpenIDEA project
+(https://github.com/l0ng-ai/openidea), licensed under the Apache License,
+Version 2.0. Portions derived from OpenIDEA:
+
+  * Design tokens and base stylesheet (src/styles/tokens.css, global.css)
+  * JetBrains "expui" icon set packaging and icon renderer
+    (src/ui/icons.tsx, src/ui/icons.module.css, src/ui/expui/, src/ui/openidea/)
+
+The expui icons are themselves vendored by OpenIDEA from JetBrains
+intellij-community / intellij-plugins (Apache-2.0 / MIT).
+
+JetBrains, IntelliJ IDEA, PyCharm and the related logos are trademarks of
+JetBrains s.r.o. OpenPyCharm is an independent open-source project and is not
+affiliated with, endorsed by, or sponsored by JetBrains s.r.o. "PyCharm" is
+used in the project name solely to describe its goal of recreating a
+PyCharm-like Python development experience.

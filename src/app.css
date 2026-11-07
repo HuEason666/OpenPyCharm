@@ -1,0 +1,45 @@
+/* App shell layout: #root is the flex column hosting title bar / workbench / status bar. */
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-app);
+}
+
+/* CodeMirror gutters/decorations that live outside CSS modules. */
+.cm-breakpoint-gutter {
+  width: 16px;
+  cursor: default;
+}
+
+.cm-breakpoint-gutter .cm-gutterElement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.cm-breakpoint-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e5484d;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.cm-breakpoint-spacer {
+  width: 10px;
+  height: 10px;
+}
+
+.cm-debug-line {
+  background: var(--bg-debug-line);
+}

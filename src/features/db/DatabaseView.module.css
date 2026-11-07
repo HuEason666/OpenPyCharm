@@ -1,0 +1,269 @@
+/* 数据库工具窗口：连接条 + 表列表 + 数据网格 + SQL 查询。 */
+
+.db {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.connectBar {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.select {
+  height: 26px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--fg);
+  font-size: var(--fs-small);
+  font-family: inherit;
+  padding: 0 6px;
+  outline: none;
+}
+
+.field {
+  height: 26px;
+  min-width: 0;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  color: var(--fg);
+  font-size: var(--fs-small);
+  font-family: inherit;
+  padding: 0 8px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
+
+.filePath {
+  flex: 1;
+  min-width: 0;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-control);
+  font-size: var(--fs-small);
+  font-family: var(--font-mono);
+  color: var(--fg-muted);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  user-select: text;
+}
+
+.button {
+  height: 26px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-control);
+  background: transparent;
+  color: var(--fg);
+  font-size: var(--fs-small);
+  font-family: inherit;
+  cursor: default;
+  outline: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  &:hover:not(:disabled) {
+    background: var(--bg-hover);
+  }
+
+  &[data-primary="true"] {
+    background: var(--accent);
+    border-color: transparent;
+    color: #ffffff;
+  }
+
+  &:disabled {
+    color: var(--fg-faint);
+    border-color: var(--border);
+  }
+}
+
+.main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+}
+
+.tables {
+  width: 170px;
+  flex: none;
+  border-right: 1px solid var(--border);
+  overflow: auto;
+  padding: 6px 4px;
+}
+
+.tableRow {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  border-radius: var(--radius-row);
+  font-size: var(--fs-small);
+  color: var(--fg);
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  .icon {
+    color: var(--icon-color);
+    flex: none;
+    display: inline-flex;
+  }
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+
+  &[data-active="true"] {
+    background: var(--bg-selected);
+  }
+}
+
+.kind {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--fg-faint);
+}
+
+.dataArea {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.table {
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+  font-family: var(--font-mono);
+  min-width: 100%;
+
+  th {
+    position: sticky;
+    top: 0;
+    background: var(--bg-elev);
+    color: var(--fg-strong);
+    text-align: left;
+    padding: 5px 10px;
+    border-bottom: 1px solid var(--border-strong);
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 4px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--fg);
+    white-space: nowrap;
+    max-width: 320px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    user-select: text;
+  }
+
+  tr:hover td {
+    background: var(--bg-hover);
+  }
+}
+
+.null {
+  color: var(--fg-faint);
+  font-style: italic;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--fg-muted);
+  font-size: var(--fs-ui);
+  padding: 20px;
+  text-align: center;
+
+  .icon {
+    color: var(--icon-color);
+    opacity: 0.9;
+  }
+}
+
+.hint {
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  max-width: 340px;
+}
+
+.error {
+  flex: none;
+  padding: 6px 10px;
+  color: var(--danger);
+  font-size: var(--fs-small);
+  white-space: pre-wrap;
+  border-top: 1px solid var(--border);
+  user-select: text;
+}
+
+.sqlRow {
+  flex: none;
+  border-top: 1px solid var(--border);
+  padding: 8px 10px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.sqlInput {
+  flex: 1;
+  height: 52px;
+  resize: none;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--fg);
+  font-size: var(--fs-small);
+  font-family: var(--font-mono);
+  line-height: 1.5;
+  padding: 6px 9px;
+  outline: none;
+
+  &:focus {
+    border-color: var(--accent);
+  }
+}
+
+.status {
+  flex: none;
+  padding: 4px 10px;
+  font-size: 11px;
+  color: var(--fg-muted);
+  border-top: 1px solid var(--border);
+}

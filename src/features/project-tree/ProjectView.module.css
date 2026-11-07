@@ -1,0 +1,74 @@
+.tree {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 2px 4px 8px 0;
+  user-select: none;
+}
+
+.row {
+  height: var(--h-row);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-right: 8px;
+  border-radius: var(--radius-row);
+  color: var(--fg);
+  font-size: var(--fs-ui);
+  white-space: nowrap;
+  cursor: default;
+  position: relative;
+
+  &:hover {
+    background: var(--bg-tree-hover);
+  }
+
+  &[data-selected] {
+    background: var(--bg-tree-selected);
+    color: var(--fg-strong);
+  }
+}
+
+.chevron {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--icon-color);
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row[data-vcs="modified"] .name,
+.row[data-vcs="renamed"] .name {
+  color: var(--vcs-modified);
+}
+
+.row[data-vcs="added"] .name,
+.row[data-vcs="untracked"] .name {
+  color: var(--vcs-added);
+}
+
+.row[data-vcs="deleted"] .name {
+  color: var(--vcs-deleted);
+  text-decoration: line-through;
+}
+
+.row[data-vcs="conflict"] .name {
+  color: var(--danger);
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-faint);
+  font-size: var(--fs-ui);
+  padding: 16px;
+}

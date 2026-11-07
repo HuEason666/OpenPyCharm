@@ -1,0 +1,94 @@
+/* Problems tool window: diagnostics grouped per file. */
+
+.problems {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 4px 6px 8px 6px;
+  user-select: none;
+}
+
+.summary {
+  padding: 2px 8px 6px 8px;
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.summaryIcon {
+  display: inline-flex;
+  vertical-align: -2px;
+  margin-right: 4px;
+}
+
+.fileRow {
+  height: var(--h-row);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px;
+  border-radius: var(--radius-row);
+  color: var(--fg-strong);
+  font-size: var(--fs-ui);
+  cursor: default;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--bg-tree-hover);
+  }
+}
+
+.filePath {
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.problemRow {
+  min-height: var(--h-row);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 2px 6px 2px 28px;
+  border-radius: var(--radius-row);
+  font-size: var(--fs-small);
+  color: var(--fg);
+  cursor: default;
+  line-height: 1.5;
+
+  &:hover {
+    background: var(--bg-tree-hover);
+  }
+}
+
+.problemText {
+  flex: 1;
+  overflow: hidden;
+}
+
+.problemPos {
+  color: var(--fg-faint);
+  flex: none;
+  min-width: 48px;
+  text-align: right;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--fg-faint);
+  font-size: var(--fs-ui);
+  padding: 16px;
+  text-align: center;
+}
+
+.offline {
+  padding: 8px 12px;
+  color: var(--fg-muted);
+  font-size: var(--fs-small);
+}

@@ -1,0 +1,49 @@
+.tree {
+  height: 100%;
+  overflow: auto;
+  padding: 4px 0;
+}
+
+.row {
+  height: var(--h-row);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 8px;
+  font-size: var(--fs-ui);
+  color: var(--fg);
+  cursor: default;
+  user-select: none;
+  white-space: nowrap;
+
+  &:hover {
+    background: var(--bg-hover);
+  }
+
+  &[data-active="true"] {
+    background: var(--bg-selected);
+    color: var(--fg-strong);
+  }
+}
+
+.name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.line {
+  margin-left: auto;
+  color: var(--fg-faint);
+  font-size: var(--fs-tiny);
+}
+
+.empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  text-align: center;
+  color: var(--fg-faint);
+  font-size: var(--fs-small);
+}
