@@ -17,6 +17,10 @@ import { python } from "@codemirror/lang-python";
 import { json } from "@codemirror/lang-json";
 import { markdown } from "@codemirror/lang-markdown";
 import { yaml } from "@codemirror/lang-yaml";
+import { javascript } from "@codemirror/lang-javascript";
+import { css } from "@codemirror/lang-css";
+import { html } from "@codemirror/lang-html";
+import { vue } from "@codemirror/lang-vue";
 import type { LanguageId } from "./docs";
 import { pythonSemantics } from "./semantics";
 import { indentGuides } from "./indentGuides";
@@ -201,6 +205,19 @@ function languageExtension(language: LanguageId, opts: { path?: () => string | n
       return markdown();
     case "yaml":
       return yaml();
+    case "javascript": {
+      // 按扩展名细分：.ts/.mts 纯 TS，.tsx TS+JSX，.js/.jsx 仅 JSX。
+      const p = (opts.path ?? (() => null))()?.toLowerCase() ?? "";
+      const typescript = p.endsWith(".ts") || p.endsWith(".mts") || p.endsWith(".cts");
+      const jsx = p.endsWith(".tsx") || p.endsWith(".jsx");
+      return javascript({ jsx, typescript });
+    }
+    case "css":
+      return css();
+    case "html":
+      return html();
+    case "vue":
+      return vue();
     default:
       return [];
   }

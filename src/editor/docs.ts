@@ -5,8 +5,9 @@
 import { create } from "zustand";
 import { ipc } from "../platform/ipc";
 import { pathBase } from "../platform/paths";
+import { notify } from "../platform/notify";
 
-export type LanguageId = "python" | "text" | "json" | "toml" | "markdown" | "yaml";
+export type LanguageId = "python" | "text" | "json" | "toml" | "markdown" | "yaml" | "javascript" | "css" | "html" | "vue";
 
 export interface Doc {
   id: string; // absolute path
@@ -26,6 +27,11 @@ export function languageForPath(path: string): LanguageId {
   if (lower.endsWith(".toml")) return "toml";
   if (lower.endsWith(".md")) return "markdown";
   if (lower.endsWith(".yml") || lower.endsWith(".yaml")) return "yaml";
+  // 前端语言（全栈项目支持）。
+  if (lower.endsWith(".ts") || lower.endsWith(".tsx") || lower.endsWith(".js") || lower.endsWith(".jsx") || lower.endsWith(".mjs") || lower.endsWith(".cjs")) return "javascript";
+  if (lower.endsWith(".css")) return "css";
+  if (lower.endsWith(".html") || lower.endsWith(".htm")) return "html";
+  if (lower.endsWith(".vue")) return "vue";
   return "text";
 }
 
@@ -84,6 +90,8 @@ export const useDocs = create<DocsState>()((set, get) => ({
         content = f.text;
       } catch (e) {
         console.error("openDoc failed", e);
+        // 静默失败会让"点击无反应"——用 toast 告知用户原因。
+        notify("error", `无法打开 ${pathBase(path)}: ${String(e)}`);
         return;
       } finally {
         opening.delete(path);
