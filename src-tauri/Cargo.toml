@@ -1,6 +1,6 @@
 [package]
 name = "openpycharm"
-version = "0.1.0"
+version = "0.2.0"
 description = "An open-source Python IDE inspired by JetBrains PyCharm"
 authors = ["OpenPyCharm contributors"]
 license = "Apache-2.0"
